@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .conteiner {
+            width: 1000px;
+            margin: 50px auto;
+            border: solid 2px;
+            /* height: 500px; */
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .col-50 {
+            width: 50%;
+            border: solid 2px;
+            margin: 50px 0 50px 20px;
+            /* height: 400px; */
+        }
+        .input-fild{
+            /* width: 70%; */
+            /* border: solid 2px; */
+            margin: 0 auto;
+            font-size: 20px;
+        }
+        .my-form{
+            padding: 50px 0;
+            margin: 70px;
+            background-color: aqua;
+        }
+        input{
+        width: 200px;
+        padding: 15px 0;
+        }
+        input[type="password"]{
+            margin: 0 0 0 5px;
+        }
+        input[type="submit"]{
+            /* margin: 0 0 0 5px; */
+            display: block;
+            margin: 10px 90px;
+            font-size: 25px;
+        }
+        P{
+            text-align: center;
+            color: red;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <section>
+        <div class="conteiner">
+            <div class="row">
+                <div class="col-50">
+                    <form class="my-form " onsubmit="return Myform()">
+                       <div class="input-fild">
+                        <label for="Username">Username</label>
+                        <input type="text" id="Username">
+                        <p id="usererror"></p>
+                       </div>
+                       <div class="input-fild">
+                        <label for="Password">Password</label>
+                        <input type="password" id="Password">
+                        <p id="passerror"></p>
+                       </div>
+                       <div>
+                        <input type="submit" value="login">
+                       </div>
+                    </form>
+                </div>
+
+                <div class="col-50"></div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let username = document.getElementById("Username")
+        let password = document.getElementById("Password")
+        let usererror = document.getElementById("usererror")
+        let passerror = document.getElementById("passerror")
+        console.log(username , password);
+
+
+        function  Myform() {
+            if(username.value == ""){
+                // alert("enter your name")
+                usererror.innerHTML = "enter your name"
+            }
+            else if(username.value.length < 5){
+                usererror.innerHTML = "more then 5 cher"
+            }
+            else{
+                usererror.innerHTML = ""
+            }
+
+            if(password.value == ""){
+                passerror.innerHTML = "enter your password"
+            }
+
+            else if(password.value.length < 8 || password.value.length > 16){
+                passerror.innerHTML = "more then 8 cher and min 16"
+            }
+            else{
+                passerror.innerHTML = ""
+            }
+
+            return false
+        }
+
+
+    </script>
+
+</body>
+
+</html>
