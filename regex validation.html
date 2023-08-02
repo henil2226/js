@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .div{
+            margin: 5px;
+            padding: 5px;
+            font-size: 25px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="#"  onclick="login()">
+        <div class="div">
+        <label for="name">yourname</label>
+        <input type="text" id="name" required>
+        <p id="n"></p>
+        </div>
+
+        <div class="div">
+            <label for="email">email</label>
+            <input type="email" name="" id="email" required>
+            <p id="e"></p>
+        </div>
+
+        <div class="div">
+            <label for="password">password</label>
+            <input type="password" name="" id="password" required>
+            <p id="p"></p>
+        </div>
+
+        <div class="div">
+            <label for="Conform password">Conform password</label>
+            <input type="password" name="" id="Conform password" required>
+            <p id="cp"></p>
+        </div>
+
+        <div>
+            <button>login</button>
+        </div>
+
+    </form>
+
+
+    <script>
+
+
+       let name = document.getElementById("name")
+       let email = document.getElementById("email")
+       let password = document.getElementById("password")
+       let Conformpassword = document.getElementById("Conform password")
+
+       let n = document.getElementById("n")
+       let e = document.getElementById("e")
+       let p = document.getElementById("p")
+       let cp = document.getElementById("cp")
+
+       function login() {
+        var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+        //email
+
+        if (email.value.length < 6 ){
+            e.innerHTML= "value must be more then 6"
+        }
+        else if (email.value != "")
+        if (email.value.match(validRegex)) {
+            e.innerHTML='valid email address'
+        }
+        else {
+            e.innerHTML="not a valid email address"
+        }
+        else {
+            e.innerHTML="ok"
+        }
+
+
+        //password
+
+        if (password.value.length < 8 ) {
+            p.innerHTML="value must be more then 8"
+        }
+
+        else if (password.value != " "){
+        if (password.value.search(/[0-9]/) == -1) {
+            p.innerHTML='include atleast 1 numeric value'
+        }
+        else if (password.value.search(/[A-Z]/) == -1){
+        p.innerHTML='include atleast 1 Uppercase value'}
+        else if (password.value.search(/[a-z]/) == -1){
+        p.innerHTML='include atleast 1 lowercase value'}
+        else if (password.value.search(/[!\@\#\$\%\^\&\*]/) == -1) {
+        p.innerHTML = 'include atleast 1 special symbol from this (!,@,#,$,%,^,&,*)'}
+ 
+        else {
+        p.innerHTML = 'valid password'}
+    }
+       else {
+           p.innerHTML = ''
+        }
+
+        if (Conformpassword.value != password.value) {
+                cp.innerHTML = 'password not matches'
+
+            }
+            else {
+                cp.innerHTML = 'password are match';
+            }
+
+        
+
+
+        return false
+       }
+
+
+
+    </script>
+    
+</body>
+</html>
